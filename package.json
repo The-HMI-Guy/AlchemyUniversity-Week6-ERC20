@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/The-HMI-Guy/AlchemyUniversity-Week6-ERC20#readme",
   "dependencies": {
+    "@openzeppelin/contracts": "^4.8.1",
     "dotenv": "^16.0.3"
   },
   "devDependencies": {
