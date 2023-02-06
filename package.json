@@ -19,5 +19,8 @@
   "homepage": "https://github.com/The-HMI-Guy/AlchemyUniversity-Week6-ERC20#readme",
   "dependencies": {
     "dotenv": "^16.0.3"
+  },
+  "devDependencies": {
+    "hardhat": "^2.12.6"
   }
 }
