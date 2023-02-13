@@ -1,5 +1,5 @@
 const hre = require("hardhat");
-const CONTRACT_ADDR = "0x28Ff977b6368C245a0b6972616001225B27a98D7";
+const CONTRACT_ADDR = "0x6Cc7973EA1947E5e84Fa9548CA22bb4E150C1Ac3";
 
 async function main() {
   const [deployer] = await ethers.getSigners();
