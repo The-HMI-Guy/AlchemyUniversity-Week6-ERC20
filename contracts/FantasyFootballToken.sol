@@ -13,17 +13,8 @@ contract FantasyFootballToken is ERC20 {
         balances[msg.sender] = _initialSupply;
     }
 
-    function decreaseBalance(uint256 _amount) internal {
-        balances[msg.sender] -= _amount;
-    }
-
-    function increaseBalance(address _to, uint256 _amount) internal {
-        balances[_to] += _amount;
-    }
-
     function airdrop(address _to, uint256 _amount) external {
         require(balances[msg.sender] >= _amount, "Not enough tokens to send!");
-        decreaseBalance(_amount);
-        increaseBalance(_to, _amount);
+        transfer(_to, _amount);
     }
 }
