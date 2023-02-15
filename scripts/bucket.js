@@ -23,19 +23,21 @@ const BUCKET_ABI = [
 ];
 async function main() {
   const [deployer] = await ethers.getSigners();
-  const AMOUNT = ethers.utils.parseUnits("50", "ether"); // total amount to spend
+  const AMOUNT = ethers.utils.parseUnits("50", "ether"); //Total amount to spend
+
+  //Get ERC20 Contract Instance
   const ERC20 = await hre.ethers.getContractAt(
     "FantasyFootballToken",
     ERC20_ADDR
   );
-  const tx = await ERC20.approve(BUCKET_ADDR, AMOUNT);
-  await tx.wait();
+  const tx = await ERC20.approve(BUCKET_ADDR, AMOUNT); //Allow the Bucket Address to spend x amount of tokens.
+  await tx.wait(); //Wait for the transaction to be mined.
   console.log("Transaction:", tx.hash);
 
-  const contract = new ethers.Contract(BUCKET_ADDR, BUCKET_ABI, deployer);
+  const contract = new ethers.Contract(BUCKET_ADDR, BUCKET_ABI, deployer); //Bucket Contract Instance
 
-  const tx2 = await contract.drop(ERC20_ADDR, AMOUNT);
-  await tx2.wait();
+  const tx2 = await contract.drop(ERC20_ADDR, AMOUNT); //Call the drop function.
+  await tx2.wait(); //Wait for the transaction to be mined.
   console.log("Transaction:", tx.hash);
 
   console.log("Completed.");
