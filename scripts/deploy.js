@@ -10,6 +10,7 @@ async function main() {
   // make sure to replace the "FantasyFootballToken" reference with your own ERC-20 name!
   const Token = await ethers.getContractFactory("FantasyFootballToken");
   const token = await Token.deploy();
+  await token.wait(); // wait for this to be mined.
 
   console.log("Token address:", token.address);
 }
